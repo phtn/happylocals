@@ -1,35 +1,47 @@
 import React from "react";
-import { Trail, Spring } from "react-spring";
+// import { Trail, Spring } from "react-spring";
+import Fade from "react-reveal/Fade";
 import { Link } from "gatsby";
 import Hourglass from "../assets/hourglass.svg";
-
+import Cobalt from "../assets/cobalt-lounge.jpg";
+import TiniMartini from "../assets/tini-martini.jpg";
 const styles = {
   container: {
     backgroundColor: "#fff",
-    borderRadius: "5px",
+    // borderRadius: "5px",
     boxShadow: "0 2px 4px 0 rgba(14,30,37,.12)",
     color: "rgba(14,30,37,.54)",
     display: "flex",
-    // alignItems: "center",
+    alignItems: "center",
+    justifyContent: "center",
     flexDirection: "column",
     // marginTop: "24px",
     minWidth: "264px",
-    padding: '0px 24px 24px 30px',
+    padding: "0px 24px 24px 30px",
+    // backgroundImage: `url(${Cobalt})`,
+    backgroundPosition: "center",
+    backgroundSize: "100%",
+    backgroundRepeat: 'no-repeat',
+    height: "auto",
+    // minHeight: 350,
   },
   header: {
     textAlign: "left",
-    paddingTop: '55px'
+    paddingTop: "55px",
+    backgroundColor: '#fff',
+    textAlign: 'center'
   },
   headerTitle: {
-    color: "#999",
+    color: "#222",
     fontSize: "1.3em",
     fontFamily: "Open Sans, sans-serif",
     fontWeight: 100
   },
   cardTitle: {
     fontFamily: "Open Sans, sans-serif",
-    fontSize: '24px',
+    fontSize: "24px",
     lineHeight: "24px",
+    color: '#eee'
     // paddingTop: 15
     // border: '1px solid red'
   },
@@ -42,12 +54,12 @@ const styles = {
   //   border: "none"
   // },
   btn: {
-    marginTop: '30px',
+    marginTop: "30px",
     padding: "0 2rem",
     height: "2.5rem",
     lineHeight: "2.5rem",
     borderRadius: "5px",
-    backgroundImage: 'linear-gradient(to right, #34CDFA, #E8D9F1',
+    backgroundImage: "linear-gradient(to right, #34CDFA, #E8D9F1)",
     // background: "rgb(0,118,255)",
     boxShadow: "0 4px 14px 0 rgba(0,118,118,0.5)",
     color: "#fff",
@@ -61,11 +73,13 @@ const styles = {
     // textTransform: "uppercase",
     // letterSpacing: 1,
     // width: 200,
-    position: "relative"
+    position: "relative",
+    opacity: 1,
+    maxWidth: 200
   },
   icon: {
     height: 15,
-    marginRight: '10px'
+    marginRight: "10px"
     // border: '1px solid green'
   },
   author: {
@@ -94,24 +108,14 @@ const styles = {
   }
 };
 
+const imageList = [Cobalt, TiniMartini, Cobalt];
+
 const Extra = props => {
   const { author, createdAt, description, readTime } = props;
   // console.log(props)
   return (
     <div>
-      <Spring
-        from={{
-          opacity: { value: 0, delay: 1500 },
-          transform: `translate3d(0px, -10px, 0px)`
-        }}
-        to={{ opacity: 1, transform: `translate3d(0px, 0px, 0px)` }}
-      >
-        {animate => (
-          <p style={Object.assign({}, styles.description, animate)}>
-            {description}
-          </p>
-        )}
-      </Spring>
+      <p style={Object.assign({}, styles.description)}>{description}</p>
 
       <p style={styles.author}>
         <strong>{author}</strong> &middot; {createdAt}
@@ -126,6 +130,7 @@ const Extra = props => {
 
 const Card = props => {
   const {
+    id,
     title,
     path,
     author,
@@ -140,19 +145,24 @@ const Card = props => {
     buttonTitle
   } = props;
   return (
-    <div
-      style={Object.assign({}, styles.container, animate, {
-        margin: `0px ${pad + 10}px 30px ${pad + 10}px`
-      })}
-    >
-      <Spring
-        from={{ transform: "translate3d(-5px, 0px, 0px)" }}
-        to={{ transform: "translate3d(0px, 0px, 0px)" }}
+    <Fade>
+      <div
+        style={Object.assign({}, styles.container, animate, {
+          margin: `0px ${pad + 10}px 30px ${pad + 10}px`,
+          backgroundImage: `url(${imageList[id]})`
+        })}
       >
-        {animate => (
-          <>
+        <div
+          style={{
+            backgroundColor: "rgba(0,0,0,0.5)",
+            maxWidth: "300px",
+            display: "flex",
+            alignItems: "center"
+          }}
+        >
+          <div>
             <h3 style={Object.assign({}, styles.cardTitle, animate)}>
-              {title}
+              {title} {id}
             </h3>
             <Extra
               author={author}
@@ -160,21 +170,26 @@ const Card = props => {
               readTime={readTime}
               description={description}
             />
-          </>
-        )}
-      </Spring>
-      {/* <hr style={styles.hr} /> */}
-      <img src={logo} alt="" width={"275"} />
-      <img src={image} alt="" width={"275"} />
-      <Link
-        style={styles.btn}
-        to={path}
-        onMouseEnter={e => (e.target.style.backgroundColor = "rgb(0,132,255)")}
-        onMouseLeave={e => (e.target.style.backgroundColor = "rgb(0,118,255)")}
-      >
-        {buttonTitle}
-      </Link>
-    </div>
+            <div />
+            {/* <hr style={styles.hr} /> */}
+            <img src={logo} alt="" width={"275"} />
+            <img src={image} alt="" width={"275"} />
+            <Link
+              style={styles.btn}
+              to={path}
+              onMouseEnter={e =>
+                (e.target.style.backgroundColor = "rgb(0,132,255)")
+              }
+              onMouseLeave={e =>
+                (e.target.style.backgroundColor = "rgb(0,118,255)")
+              }
+            >
+              {buttonTitle}
+            </Link>
+          </div>
+        </div>
+      </div>
+    </Fade>
   );
 };
 
@@ -183,35 +198,34 @@ const BlogList = props => {
   return (
     <>
       <div
-        style={Object.assign({}, styles.header, { paddingLeft: `${pad + 10}px`, paddingRight: `${pad + 10}px` })}
+        style={Object.assign({}, styles.header, {
+          paddingLeft: `${pad + 10}px`,
+          paddingRight: `${pad + 10}px`
+        })}
       >
         <h1 style={styles.headerTitle}>
           <img src={icon} style={styles.icon} alt="" /> {headerTitle}
         </h1>
       </div>
-      <Trail
-        items={items}
-        keys={item => item.node.id}
-        from={{ opacity: 0, transform: "translate3d(0,5px,0)" }}
-        to={{ opacity: 1, transform: "translate3d(0,0px,0)" }}
-      >
-        {item => animate => (
-          <Card
-            title={item.node.frontmatter.title}
-            path={item.node.frontmatter.path}
-            author={item.node.frontmatter.author}
-            createdAt={item.node.frontmatter.createdAt}
-            description={item.node.frontmatter.description}
-            avatar={item.node.frontmatter.avatar}
-            readTime={item.node.frontmatter.readTime}
-            animate={animate}
-            pad={pad}
-            logo={item.logo}
-            // image={image}
-            buttonTitle={buttonTitle}
-          />
-        )}
-      </Trail>
+
+      {items.map(item => (
+        <Card
+          key={item.node.id}
+          id={item.node.frontmatter.id}
+          title={item.node.frontmatter.title}
+          path={item.node.frontmatter.path}
+          author={item.node.frontmatter.author}
+          createdAt={item.node.frontmatter.createdAt}
+          description={item.node.frontmatter.description}
+          avatar={item.node.frontmatter.avatar}
+          readTime={item.node.frontmatter.readTime}
+          // animate={animate}
+          pad={pad}
+          logo={item.logo}
+          // image={image}
+          buttonTitle={buttonTitle}
+        />
+      ))}
     </>
   );
 };

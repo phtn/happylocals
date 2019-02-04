@@ -1,14 +1,14 @@
 ---
-path: "/new-era-of-human-life"
-title: "A New Era of Human Life"
+path: "/cobalt-lounge"
+title: "Cobalt Lounge"
 author: "Will Medina"
 createdAt: "Jan 26 2019"
 updatedAt: "Jan 26 2019"
-description: "Where do we go from here?"
+description: "Bar @ Casa Monica Hotel"
 avatar: ""
 readTime: "2 min read"
 source: "/"
-id: 1
+id: 2
 ---
 
 

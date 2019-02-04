@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../components/layout";
-import BlogList from "../components/blog-list";
+import BarList from "../components/bar-list";
 import Pitcher from "../assets/filter.svg";
 import { graphql } from "gatsby";
 import Helmet from 'react-helmet'
@@ -14,14 +14,14 @@ const Blog = ({ data, pad }) => {
         <meta name="description" content="house water systems, filtration, purification"/>
         <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700i|Quicksand|Roboto:100" rel="stylesheet"/>
       </Helmet>
-      <Layout title="Blog">
-        <BlogList
+      <Layout title="Bars">
+        <BarList
           items={post.edges}
-          headerTitle={`Blogs`}
+          headerTitle={`Bars @ St. Augustine, FL`}
           title={""}
           buttonTitle={`Read More`}
           pad={pad}
-          icon={Pitcher}
+          // icon={Pitcher}
         />
       </Layout>
     </>
@@ -30,7 +30,7 @@ const Blog = ({ data, pad }) => {
 export default Blog;
 
 export const getBlogs = graphql`
-  query BlogPosts {
+  query BarsList {
     allMarkdownRemark(
       sort: { fields: [frontmatter___id], order: DESC }
       limit: 5

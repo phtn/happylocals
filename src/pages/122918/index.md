@@ -1,6 +1,6 @@
 ---
-path: "/second-post"
-title: "What is a Blog?"
+path: "/staug-distillery"
+title: "St Augustine Distillery"
 author: " Ogi Djuraskovic and FirstSiteGuide team"
 createdAt: "April 8th, 2018"
 updatedAt: "December 7th, 2018"

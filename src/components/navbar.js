@@ -11,26 +11,29 @@ const styles = {
     position: "fixed",
     zIndex: 1,
     // border: '1px solid red',
-    // paddingRight: '200px'
+    // paddingRight: '200px',
+    boxShadow: "0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)",
+    backgroundImage: 'linear-gradient(to right, #34CDFA, #E8D9F1)',
   },
   logo: {
-    width: 30,
-    paddingRight: 20,
+    width: 50,
+    // paddingRight: 10,
     paddingLeft: 10
   },
   brand: {
     color: "#eee",
-    fontFamily: "Roboto, sans-serif",
-    fontSize: "18px",
-    fontWeight: "700i",
+    fontFamily: "Open Sans, sans-serif",
+    fontSize: "24px",
+    fontWeight: "bolder",
     textTransform: "uppercase",
     letterSpacing: "1px",
     textDecoration: "none",
-    width: "100%",
+    // width: "100%",
+    paddingLeft: '10px'
     // border: '1px solid red'
   },
   links: {
-    color: "#ccc",
+    color: "#222",
     textDecoration: "none",
     fontFamily: "Quicksand, sans-serif",
     paddingLeft: '17px',
@@ -42,18 +45,18 @@ const styles = {
   }
 };
 
-const initialState = { products: false, blog: false, company: false };
+const initialState = { products: false, bars: false, company: false };
 const Navbar = props => {
   const { logo, pad, brand } = props;
 
   function reducer(state, action) {
     switch (action) {
       case "products":
-        return { company: false, blog: false, products: true };
-      case "blog":
-        return { company: false, blog: true, products: false };
+        return { company: false, bars: false, products: true };
+      case "bars":
+        return { company: false, bars: true, products: false };
       case "company":
-        return { company: true, blog: false, products: false };
+        return { company: true, bars: false, products: false };
       default:
         return state;
     }
@@ -70,10 +73,10 @@ const Navbar = props => {
     },
     {
       id: 1,
-      path: "/blog",
-      title: "Blog",
-      active: state.blog,
-      onClick: () => dispatch("blogs")
+      path: "/bars",
+      title: "bars",
+      active: state.bars,
+      onClick: () => dispatch("bars")
     },
     {
       id: 0,
@@ -93,7 +96,12 @@ const Navbar = props => {
         paddingLeft: pad,
         paddingRight: pad
       })}
-    >
+    > 
+      <div >
+        <Link to="/" style={styles.brand}>
+          {brand === '' ? '' : `Locals`}
+        </Link>
+      </div>
       <div>
         <Link to="/">
           <img src={logo} style={styles.logo} alt="" />
@@ -112,12 +120,12 @@ const Navbar = props => {
             to={link.path}
             key={link.id}
             style={Object.assign({}, styles.links, {
-              color: link.active === true ? "#ffd454" : "#ccc",
+              color: link.active === true ? "#ffd454" : "#222",
             })}
             onMouseEnter={e => {
               e.target.style.color = "#ffd454";
             }}
-            onMouseLeave={e => (e.target.style.color = "#ccc")}
+            onMouseLeave={e => (e.target.style.color = "#222")}
             onClick={link.onClick}
           >
             {link.title}

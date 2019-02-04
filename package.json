@@ -27,6 +27,7 @@
     "react": "16.7.0-alpha.2",
     "react-dom": "16.7.0-alpha.2",
     "react-helmet": "^5.2.0",
+    "react-reveal": "^1.2.2",
     "react-spring": "^7.2.3",
     "react-vanilla-tilt": "^1.0.0",
     "semantic-ui-react": "^0.84.0",

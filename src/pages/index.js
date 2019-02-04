@@ -55,7 +55,7 @@ export default () => {
         <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700i|Quicksand|Roboto:100" rel="stylesheet"/>
       </Helmet>
 
-      <Layout title={`William Wallace Water`}>
+      <Layout title={`Happy Hour`}>
   
         <Landing/>
         <Bridge/>

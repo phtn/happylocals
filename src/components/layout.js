@@ -1,7 +1,6 @@
 import React, { useState, useEffect, Children, cloneElement } from 'react'
-import Logo from "../../static/sea.svg";
+import Logo from "../assets/chronometer.svg";
 import Navbar from './navbar';
-// import { Helmet } from 'react-helmet'
 import Footer from './footer'
 import '../index.css'
 import Metatags from './metatags';
@@ -20,14 +19,14 @@ const Layout = ({children, title}) => {
 
   const getInitialPad = () => {
     if (typeof global !== 'undefined' && global.innerWidth > 700){
-      return 100
+      return 200
     } else {
       return 10
     }
   }
   const getInitialBrand = () => {
     if (typeof global !== 'undefined' && global.innerWidth > 700){
-      return 'Wallace Water'
+      return 'Happy Hour'
     } else {
       return ''
     }
@@ -47,8 +46,8 @@ const Layout = ({children, title}) => {
     document.title = title
 
     if (width > 700){
-      handleNavPad(100)
-      handleShowBrand('Wallace Water')
+      handleNavPad(200)
+      handleShowBrand('Happy Hour')
     } else {
       handleNavPad(10)
       handleShowBrand('')
