@@ -2,6 +2,7 @@ import React from "react";
 import Layout from "../components/layout";
 import BarList from "../components/bar-list";
 import Pitcher from "../assets/filter.svg";
+import MapIcon from '../assets/map-icon.svg'
 import { graphql } from "gatsby";
 import Helmet from 'react-helmet'
 
@@ -17,11 +18,11 @@ const Blog = ({ data, pad }) => {
       <Layout title="Bars">
         <BarList
           items={post.edges}
-          headerTitle={`Bars @ St. Augustine, FL`}
+          headerTitle={`St. Augustine, FL`}
           title={""}
           buttonTitle={`Read More`}
           pad={pad}
-          // icon={Pitcher}
+          icon={MapIcon}
         />
       </Layout>
     </>

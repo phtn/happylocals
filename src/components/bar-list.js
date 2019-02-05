@@ -7,9 +7,9 @@ import Cobalt from "../assets/cobalt-lounge.jpg";
 import TiniMartini from "../assets/tini-martini.jpg";
 const styles = {
   container: {
-    backgroundColor: "#fff",
+    // backgroundColor: "#fff",
     // borderRadius: "5px",
-    boxShadow: "0 2px 4px 0 rgba(14,30,37,.12)",
+    // boxShadow: "0 2px 4px 0 rgba(14,30,37,.12)",
     color: "rgba(14,30,37,.54)",
     display: "flex",
     alignItems: "center",
@@ -26,16 +26,18 @@ const styles = {
     // minHeight: 350,
   },
   header: {
-    textAlign: "left",
+    textAlign: "center",
     paddingTop: "55px",
-    backgroundColor: '#fff',
-    textAlign: 'center'
+    // backgroundColor: '#fff',
   },
   headerTitle: {
-    color: "#222",
-    fontSize: "1.3em",
-    fontFamily: "Open Sans, sans-serif",
-    fontWeight: 100
+    color: "#0076ff",
+    fontSize: "1em",
+    fontFamily: "Roboto, sans-serif",
+    fontWeight: 100,
+    backgroundColor: '#fff',
+    padding: '5px',
+    borderRadius: '5px'
   },
   cardTitle: {
     fontFamily: "Open Sans, sans-serif",
@@ -78,7 +80,7 @@ const styles = {
     maxWidth: 200
   },
   icon: {
-    height: 15,
+    height: '12px',
     marginRight: "10px"
     // border: '1px solid green'
   },
@@ -104,7 +106,8 @@ const styles = {
     textTransform: "uppercase",
     fontWeight: "bolder",
     fontFamily: "Roboto, sans-serif",
-    letterSpacing: 1
+    letterSpacing: 1,
+    color: '#fff'
   }
 };
 
@@ -140,28 +143,30 @@ const Card = props => {
     readTime,
     logo,
     image,
-    animate,
     pad,
     buttonTitle
   } = props;
   return (
     <Fade>
       <div
-        style={Object.assign({}, styles.container, animate, {
+        style={Object.assign({}, styles.container, {
           margin: `0px ${pad + 10}px 30px ${pad + 10}px`,
           backgroundImage: `url(${imageList[id]})`
         })}
       >
         <div
           style={{
-            backgroundColor: "rgba(0,0,0,0.5)",
+            // backgroundColor: "rgba(0,0,0,0.5)",
             maxWidth: "300px",
-            display: "flex",
-            alignItems: "center"
+            textAlign: 'center'
           }}
         >
-          <div>
-            <h3 style={Object.assign({}, styles.cardTitle, animate)}>
+          <div style={{
+            // display: "flex",
+            textAlign: "center",
+            // justifyContent: 'center',
+          }}>
+            <h3 style={Object.assign({}, styles.cardTitle)}>
               {title} {id}
             </h3>
             <Extra
@@ -170,8 +175,9 @@ const Card = props => {
               readTime={readTime}
               description={description}
             />
-            <div />
-            {/* <hr style={styles.hr} /> */}
+          <div />
+            {/* <
+            hr style={styles.hr} /> */}
             <img src={logo} alt="" width={"275"} />
             <img src={image} alt="" width={"275"} />
             <Link
