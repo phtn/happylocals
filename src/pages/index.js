@@ -3,8 +3,9 @@ import Layout from '../components/layout';
 import ClearWater from '../assets/clear-water.mp4';
 import Helmet from 'react-helmet'
 import Newsletter from '../components/newsletter';
+import Highlight from '../assets/staug1.jpg'
 
-
+import Map from '../components/map'
 
 
 const styles = {
@@ -31,10 +32,10 @@ const Landing = props => {
   
   return (
     <div style={styles.landingContainer}>
-
-      <video id='landingVideo' muted autoPlay loop width='100%'>
-        <source src={ClearWater} />
-      </video>
+      <img src={Highlight} width={'100%'} alt={'highlight'} />
+      {/* <video id='landingVideo' muted autoPlay loop width='100%'>
+        <source src={ClearWHighlightater} />
+      </video> */}
       
     </div>
   )
@@ -59,7 +60,7 @@ export default () => {
   
         <Landing/>
         <Bridge/>
-        
+        <Map />
       </Layout>
     </>
   )
