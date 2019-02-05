@@ -2,7 +2,7 @@ import React from "react";
 // import { Trail, Spring } from "react-spring";
 import Fade from "react-reveal/Fade";
 import Bounce from "react-reveal/Bounce";
-import LightSpeed from 'react-reveal/LightSpeed'
+import LightSpeed from "react-reveal/LightSpeed";
 import { Link } from "gatsby";
 import Hourglass from "../assets/hourglass.svg";
 import Cobalt from "../assets/cobalt-lounge.jpg";
@@ -65,7 +65,7 @@ const styles = {
   //   border: "none"
   // },
   btn: {
-    marginTop: "30px",
+    marginTop: "40px",
     padding: "0 2rem",
     height: "2.5rem",
     lineHeight: "2.5rem",
@@ -73,14 +73,15 @@ const styles = {
     backgroundImage: "linear-gradient(to right, #34CDFA, #E8D9F1)",
     // background: "rgb(0,118,255)",
     boxShadow: "0 4px 14px 0 rgba(0,118,118,0.5)",
-    color: "#fff",
+    textShadow: " 2px 1px #999",
+    color: "#222",
     border: "none",
     fontFamily: "Open Sans, sans-serif",
-    fontWeight: 100,
+    fontWeight: 'bolder',
     fontSize: 18,
     textDecoration: "none",
     textAlign: "center",
-    float: "left",
+    float: "right",
     // textTransform: "uppercase",
     // letterSpacing: 1,
     // width: 200,
@@ -129,9 +130,9 @@ const styles = {
   spear: {
     transform: `rotate(45deg)`,
     // position: "relative"
-    display: 'inline-block',
+    display: "inline-block",
     // border: '1px solid red',
-    marginTop: '-37px'
+    marginTop: "-37px"
   }
 };
 
@@ -184,15 +185,36 @@ const Card = props => {
           <h3 style={Object.assign({}, styles.cardTitle)}>{title}</h3>
         </Bounce>
         <img src={Wing} style={styles.rightWing} height="10" alt="right-wing" />
-        
       </div>
-        <LightSpeed left>
-
-      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
+      <LightSpeed left>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "100%"
+          }}
+        >
           <img src={Spear} style={styles.spear} height="50" alt="spear" />
+        </div>
+      </LightSpeed>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "100%",
+          marginTop: '-25px',
+          fontFamily: 'Roboto, sans-serif',
+          fontWeight: 100,
+          textTransform: 'uppercase',
+          letterSpacing: '2',
+          fontSize: 12,
+          // color: '#34CDFA'
+        }}
+      >
+        <p>{description}</p>
       </div>
-        </LightSpeed>
-
       <div
         style={Object.assign({}, styles.container, {
           margin: `0px ${pad + 0}px 30px ${pad + 0}px`,
@@ -224,7 +246,7 @@ const Card = props => {
             {/* <
             hr style={styles.hr} /> */}
             <img src={logo} alt="" width={"275"} />
-            <img src={image} alt="" width={"275"} />
+            {/* <img src={image} alt="" width={"275"} /> */}
             <Link
               style={styles.btn}
               to={path}
@@ -235,7 +257,7 @@ const Card = props => {
                 (e.target.style.backgroundColor = "rgb(0,118,255)")
               }
             >
-              {buttonTitle}
+              {"Specials"}
             </Link>
           </div>
         </div>
