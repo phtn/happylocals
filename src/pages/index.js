@@ -1,11 +1,13 @@
 import React from 'react'
 import Layout from '../components/layout';
-import ClearWater from '../assets/clear-water.mp4';
+// import ClearWater from '../assets/clear-water.mp4';
 import Helmet from 'react-helmet'
 import Newsletter from '../components/newsletter';
 import Highlight from '../assets/staug1.jpg'
-
+import { StaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import Map from '../components/map'
+
 
 
 const styles = {
@@ -31,13 +33,27 @@ const Landing = props => {
  
   
   return (
-    <div style={styles.landingContainer}>
-      <img src={Highlight} width={'100%'} alt={'highlight'} />
-      {/* <video id='landingVideo' muted autoPlay loop width='100%'>
-        <source src={ClearWHighlightater} />
-      </video> */}
-      
-    </div>
+
+    <StaticQuery query={graphql`
+      query {
+        highlight: file(relativePath: {eq: "staug1.jpg"}) {
+          childImageSharp {
+            fluid(maxWidth: 1600){
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    `} 
+      render={ data => {
+        return (
+          // <div style={styles.landingContainer}>
+            <Img fluid={data.highlight.childImageSharp.fluid} alt={'highlight'} />
+          // </div>
+        )
+      }}
+    />
+    
   )
 }
 
@@ -49,9 +65,12 @@ const Bridge = props => {
   )
 }
 
+
+
 export default () => {
   return (
     <>
+      
       <Helmet>
         <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700i|Quicksand|Roboto:100" rel="stylesheet"/>
       </Helmet>
@@ -65,3 +84,4 @@ export default () => {
     </>
   )
 }
+
