@@ -1,11 +1,15 @@
 import React from "react";
 // import { Trail, Spring } from "react-spring";
 import Fade from "react-reveal/Fade";
+import Bounce from "react-reveal/Bounce";
+import LightSpeed from 'react-reveal/LightSpeed'
 import { Link } from "gatsby";
 import Hourglass from "../assets/hourglass.svg";
 import Cobalt from "../assets/cobalt-lounge.jpg";
 import TiniMartini from "../assets/tini-martini.jpg";
-import StaugDist from '../assets/staug-dist.jpg'
+import StaugDist from "../assets/staug-dist.jpg";
+import Wing from "../assets/black-gallon.svg";
+import Spear from "../assets/spear.svg";
 
 const styles = {
   container: {
@@ -23,13 +27,13 @@ const styles = {
     // backgroundImage: `url(${Cobalt})`,
     backgroundPosition: "center",
     backgroundSize: "100%",
-    backgroundRepeat: 'no-repeat',
+    backgroundRepeat: "no-repeat"
     // height: "auto",
     // minHeight: 350,
   },
   header: {
     textAlign: "center",
-    paddingTop: "55px",
+    paddingTop: "55px"
     // backgroundColor: '#fff',
   },
   headerTitle: {
@@ -37,18 +41,19 @@ const styles = {
     fontSize: "1em",
     fontFamily: "Roboto, sans-serif",
     fontWeight: 100,
-    backgroundColor: '#fff',
-    padding: '5px',
-    borderRadius: '5px'
+    backgroundColor: "#fff",
+    padding: "5px",
+    borderRadius: "5px"
   },
   cardTitle: {
-    fontFamily: "Open Sans, sans-serif",
+    fontFamily: "ZCOOL KuaiLe, cursive",
     fontSize: "24px",
+    letterSpacing: 1,
     lineHeight: "24px",
-    color: '#34CDFA',
-    // textShadow: " 2px 2px #ccc",
+    color: "#333",
+    textShadow: " 2px 2px #ccc",
     // backgroundColor: '#fff',
-    textAlign: 'center'
+    textAlign: "center"
     // border: '1px solid red'
   },
   // hr: {
@@ -84,7 +89,7 @@ const styles = {
     maxWidth: 200
   },
   icon: {
-    height: '12px',
+    height: "12px",
     marginRight: "10px"
     // border: '1px solid green'
   },
@@ -111,7 +116,22 @@ const styles = {
     fontWeight: "bolder",
     fontFamily: "Roboto, sans-serif",
     letterSpacing: 1,
-    color: '#fff'
+    color: "#fff"
+  },
+  leftWing: {
+    transform: `rotate(90deg)`,
+    margin: "0px 10px"
+  },
+  rightWing: {
+    transform: `rotate(-90deg)`,
+    margin: "0px 10px"
+  },
+  spear: {
+    transform: `rotate(45deg)`,
+    // position: "relative"
+    display: 'inline-block',
+    // border: '1px solid red',
+    marginTop: '-37px'
   }
 };
 
@@ -152,9 +172,27 @@ const Card = props => {
   } = props;
   return (
     <Fade>
-      <h3 style={Object.assign({}, styles.cardTitle)}>
-        {title} {id}
-      </h3>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center"
+        }}
+      >
+        <img src={Wing} style={styles.leftWing} height="10" alt="left-wing" />
+        <Bounce>
+          <h3 style={Object.assign({}, styles.cardTitle)}>{title}</h3>
+        </Bounce>
+        <img src={Wing} style={styles.rightWing} height="10" alt="right-wing" />
+        
+      </div>
+        <LightSpeed left>
+
+      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
+          <img src={Spear} style={styles.spear} height="50" alt="spear" />
+      </div>
+        </LightSpeed>
+
       <div
         style={Object.assign({}, styles.container, {
           margin: `0px ${pad + 0}px 30px ${pad + 0}px`,
@@ -165,24 +203,24 @@ const Card = props => {
           style={{
             // backgroundColor: "rgba(0,0,0,0.5)",
             maxWidth: "300px",
-            textAlign: 'center',
-            height: '100%',
-            
+            textAlign: "center",
+            height: "100%"
           }}
         >
-          <div style={{
-            // display: "flex",
-            textAlign: "center",
-            // justifyContent: 'center',
-          }}>
-            
+          <div
+            style={{
+              // display: "flex",
+              textAlign: "center"
+              // justifyContent: 'center',
+            }}
+          >
             <Extra
-              // author={author}
-              // createdAt={createdAt}
-              // readTime={readTime}
-              // description={description}
+            // author={author}
+            // createdAt={createdAt}
+            // readTime={readTime}
+            // description={description}
             />
-          <div />
+            <div />
             {/* <
             hr style={styles.hr} /> */}
             <img src={logo} alt="" width={"275"} />

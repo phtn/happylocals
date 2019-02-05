@@ -13,7 +13,7 @@ const Blog = ({ data, pad }) => {
     <>
       <Helmet>
         <meta name="description" content="house water systems, filtration, purification"/>
-        <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700i|Quicksand|Roboto:100" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700i|Quicksand|Roboto:100|ZCOOL+KuaiLe" rel="stylesheet"/>
       </Helmet>
       <Layout title="Bars">
         <BarList
