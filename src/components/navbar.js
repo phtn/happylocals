@@ -64,27 +64,27 @@ const Navbar = props => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const links = [
-    {
-      id: 2,
-      path: "/products",
-      title: "Products",
-      active: state.products,
-      onClick: () => dispatch("products")
-    },
+    // {
+    //   id: 2,
+    //   path: "/products",
+    //   title: "Products",
+    //   active: state.products,
+    //   onClick: () => dispatch("products")
+    // },
     {
       id: 1,
       path: "/bars",
-      title: "bars",
+      title: "Bars",
       active: state.bars,
       onClick: () => dispatch("bars")
     },
-    {
-      id: 0,
-      path: "/company",
-      title: "Company",
-      active: state.company,
-      onClick: () => dispatch("company")
-    },
+    // {
+    //   id: 0,
+    //   path: "/company",
+    //   title: "Company",
+    //   active: state.company,
+    //   onClick: () => dispatch("company")
+    // },
     
     
   ];

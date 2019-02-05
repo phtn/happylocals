@@ -21,7 +21,7 @@ const Layout = ({children, title}) => {
     if (typeof global !== 'undefined' && global.innerWidth > 700){
       return 200
     } else {
-      return 10
+      return 0
     }
   }
   const getInitialBrand = () => {
@@ -49,7 +49,7 @@ const Layout = ({children, title}) => {
       handleNavPad(200)
       handleShowBrand('Happy Hour')
     } else {
-      handleNavPad(10)
+      handleNavPad(0)
       handleShowBrand('')
     }
 

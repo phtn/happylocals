@@ -5,6 +5,8 @@ import { Link } from "gatsby";
 import Hourglass from "../assets/hourglass.svg";
 import Cobalt from "../assets/cobalt-lounge.jpg";
 import TiniMartini from "../assets/tini-martini.jpg";
+import StaugDist from '../assets/staug-dist.jpg'
+
 const styles = {
   container: {
     // backgroundColor: "#fff",
@@ -22,7 +24,7 @@ const styles = {
     backgroundPosition: "center",
     backgroundSize: "100%",
     backgroundRepeat: 'no-repeat',
-    height: "auto",
+    // height: "auto",
     // minHeight: 350,
   },
   header: {
@@ -43,8 +45,10 @@ const styles = {
     fontFamily: "Open Sans, sans-serif",
     fontSize: "24px",
     lineHeight: "24px",
-    color: '#eee'
-    // paddingTop: 15
+    color: '#34CDFA',
+    // textShadow: " 2px 2px #ccc",
+    // backgroundColor: '#fff',
+    textAlign: 'center'
     // border: '1px solid red'
   },
   // hr: {
@@ -111,7 +115,7 @@ const styles = {
   }
 };
 
-const imageList = [Cobalt, TiniMartini, Cobalt];
+const imageList = [StaugDist, TiniMartini, Cobalt];
 
 const Extra = props => {
   const { author, createdAt, description, readTime } = props;
@@ -148,9 +152,12 @@ const Card = props => {
   } = props;
   return (
     <Fade>
+      <h3 style={Object.assign({}, styles.cardTitle)}>
+        {title} {id}
+      </h3>
       <div
         style={Object.assign({}, styles.container, {
-          margin: `0px ${pad + 10}px 30px ${pad + 10}px`,
+          margin: `0px ${pad + 0}px 30px ${pad + 0}px`,
           backgroundImage: `url(${imageList[id]})`
         })}
       >
@@ -158,7 +165,9 @@ const Card = props => {
           style={{
             // backgroundColor: "rgba(0,0,0,0.5)",
             maxWidth: "300px",
-            textAlign: 'center'
+            textAlign: 'center',
+            height: '100%',
+            
           }}
         >
           <div style={{
@@ -166,14 +175,12 @@ const Card = props => {
             textAlign: "center",
             // justifyContent: 'center',
           }}>
-            <h3 style={Object.assign({}, styles.cardTitle)}>
-              {title} {id}
-            </h3>
+            
             <Extra
-              author={author}
-              createdAt={createdAt}
-              readTime={readTime}
-              description={description}
+              // author={author}
+              // createdAt={createdAt}
+              // readTime={readTime}
+              // description={description}
             />
           <div />
             {/* <
