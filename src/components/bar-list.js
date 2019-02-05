@@ -10,7 +10,7 @@ import TiniMartini from "../assets/tini-martini.jpg";
 import StaugDist from "../assets/staug-dist.jpg";
 import Wing from "../assets/black-gallon.svg";
 import Spear from "../assets/spear.svg";
-
+import Play from '../assets/stack.svg'
 const styles = {
   container: {
     // backgroundColor: "#fff",
@@ -66,19 +66,21 @@ const styles = {
   // },
   btn: {
     marginTop: "40px",
-    padding: "0 2rem",
-    height: "2.5rem",
-    lineHeight: "2.5rem",
-    borderRadius: "5px",
-    backgroundImage: "linear-gradient(to right, #34CDFA, #E8D9F1)",
+    padding: "5px 10px",
+    // height: "2.5rem",
+    // lineHeight: "2.5pxrem",
+    borderRadius: "100px",
+    border: '2px solid rgba(238,238,238, 0.5)',
+    // backgroundImage: "linear-gradient(to right, #34CDFA, #E8D9F1)",
     // background: "rgb(0,118,255)",
     boxShadow: "0 4px 14px 0 rgba(0,118,118,0.5)",
-    textShadow: " 2px 1px #999",
+    // textShadow: " 2px 1px #999",
+    textTransform: 'uppercase',
     color: "#222",
-    border: "none",
-    fontFamily: "Open Sans, sans-serif",
-    fontWeight: 'bolder',
-    fontSize: 18,
+    // border: "none",
+    // fontFamily: "Roboto, sans-serif",
+    // fontWeight: 100,
+    // fontSize: 16,
     textDecoration: "none",
     textAlign: "center",
     float: "right",
@@ -257,7 +259,7 @@ const Card = props => {
                 (e.target.style.backgroundColor = "rgb(0,118,255)")
               }
             >
-              {"Specials"}
+              <img src={Play} width={40} alt='play'/>
             </Link>
           </div>
         </div>
