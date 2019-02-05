@@ -16,7 +16,7 @@ const styles = {
     backgroundImage: 'linear-gradient(to right, #34CDFA, #E8D9F1)',
   },
   logo: {
-    width: 50,
+    width: 45,
     // paddingRight: 10,
     paddingLeft: 10
   },
@@ -35,9 +35,11 @@ const styles = {
   links: {
     color: "#222",
     textDecoration: "none",
-    fontFamily: "Quicksand, sans-serif",
-    paddingLeft: '17px',
-    fontSize: '16px'
+    fontFamily: "Open Sans, sans-serif",
+    padding: '5px',
+    fontSize: '16px',
+    border: '1px solid #555',
+    borderRadius: 3
   },
   linksContainer: {
     // border: "1px solid blue",
@@ -120,10 +122,10 @@ const Navbar = props => {
             to={link.path}
             key={link.id}
             style={Object.assign({}, styles.links, {
-              color: link.active === true ? "#ffd454" : "#222",
+              color: link.active === true ? "#fff" : "#222",
             })}
             onMouseEnter={e => {
-              e.target.style.color = "#ffd454";
+              e.target.style.color = "#fff";
             }}
             onMouseLeave={e => (e.target.style.color = "#222")}
             onClick={link.onClick}

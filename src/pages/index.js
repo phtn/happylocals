@@ -2,8 +2,6 @@ import React from 'react'
 import Layout from '../components/layout';
 // import ClearWater from '../assets/clear-water.mp4';
 import Helmet from 'react-helmet'
-import Newsletter from '../components/newsletter';
-import Highlight from '../assets/staug1.jpg'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import Map from '../components/map'
@@ -60,7 +58,7 @@ const Landing = props => {
 const Bridge = props => {
   return(
     <div style={styles.bridge}>
-        <Newsletter/>
+        {/* <Newsletter/> */}
     </div>
   )
 }
@@ -76,7 +74,7 @@ export default () => {
       </Helmet>
 
       <Layout title={`Happy Hour`}>
-  
+        <div style={{height: 50}}></div>
         <Landing/>
         <Bridge/>
         <Map />

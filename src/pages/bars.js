@@ -1,7 +1,6 @@
 import React from "react";
 import Layout from "../components/layout";
 import BarList from "../components/bar-list";
-import Pitcher from "../assets/filter.svg";
 import MapIcon from '../assets/map-icon.svg'
 import { graphql } from "gatsby";
 import Helmet from 'react-helmet'

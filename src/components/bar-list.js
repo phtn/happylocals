@@ -2,9 +2,10 @@ import React from "react";
 // import { Trail, Spring } from "react-spring";
 import Fade from "react-reveal/Fade";
 import Bounce from "react-reveal/Bounce";
+import Slide from 'react-reveal/Slide'
 import LightSpeed from "react-reveal/LightSpeed";
 import { Link } from "gatsby";
-import Hourglass from "../assets/hourglass.svg";
+// import Hourglass from "../assets/hourglass.svg";
 import Cobalt from "../assets/cobalt-lounge.jpg";
 import TiniMartini from "../assets/tini-martini.jpg";
 import StaugDist from "../assets/staug-dist.jpg";
@@ -33,8 +34,9 @@ const styles = {
   },
   header: {
     textAlign: "center",
-    paddingTop: "55px"
+    paddingTop: "55px",
     // backgroundColor: '#fff',
+    maxWidth: 200
   },
   headerTitle: {
     color: "#0076ff",
@@ -92,7 +94,7 @@ const styles = {
     maxWidth: 200
   },
   icon: {
-    height: "12px",
+    height: "14px",
     marginRight: "10px"
     // border: '1px solid green'
   },
@@ -151,7 +153,7 @@ const Extra = props => {
         <strong>{author}</strong> &middot; {createdAt}
       </p>
       <div>
-        <img src={Hourglass} style={styles.hourglass} alt="hg" />
+        {/* <img src={Hourglass} style={styles.hourglass} alt="hg" /> */}
         <p style={styles.read}>{readTime}</p>
       </div>
     </div>
@@ -163,18 +165,18 @@ const Card = props => {
     id,
     title,
     path,
-    author,
+    // author,
     description,
-    createdAt,
+    // createdAt,
     // avatar,
-    readTime,
+    // readTime,
     logo,
-    image,
+    // image,
     pad,
-    buttonTitle
+    // buttonTitle
   } = props;
   return (
-    <Fade>
+    <Fade cascade>
       <div
         style={{
           display: "flex",
@@ -183,7 +185,7 @@ const Card = props => {
         }}
       >
         <img src={Wing} style={styles.leftWing} height="10" alt="left-wing" />
-        <Bounce>
+        <Bounce cascade>
           <h3 style={Object.assign({}, styles.cardTitle)}>{title}</h3>
         </Bounce>
         <img src={Wing} style={styles.rightWing} height="10" alt="right-wing" />
@@ -278,9 +280,12 @@ const BlogList = props => {
           paddingRight: `${pad + 10}px`
         })}
       >
+      <Slide top>
+
         <h1 style={styles.headerTitle}>
           <img src={icon} style={styles.icon} alt="" /> {headerTitle}
         </h1>
+      </Slide>
       </div>
 
       {items.map(item => (

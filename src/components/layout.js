@@ -18,14 +18,14 @@ const styles = {
 const Layout = ({children, title}) => {
 
   const getInitialPad = () => {
-    if (typeof global !== 'undefined' && global.innerWidth > 700){
+    if (typeof global !== 'undefined' && global.innerWidth > 650){
       return 200
     } else {
       return 0
     }
   }
   const getInitialBrand = () => {
-    if (typeof global !== 'undefined' && global.innerWidth > 700){
+    if (typeof global !== 'undefined' && global.innerWidth > 650){
       return 'Happy Hour'
     } else {
       return ''
@@ -45,7 +45,7 @@ const Layout = ({children, title}) => {
 
     document.title = title
 
-    if (width > 700){
+    if (width > 650){
       handleNavPad(200)
       handleShowBrand('Happy Hour')
     } else {
