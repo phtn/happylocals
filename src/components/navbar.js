@@ -1,9 +1,10 @@
 import React, { useReducer } from "react";
 import { Link } from "gatsby";
 import Locale from "../components/locale";
-import Helmet from 'react-helmet'
+import Helmet from "react-helmet";
 
-const styles = { // 🎨
+// 🎨
+const styles = {
   container: {
     height: 50,
     backgroundColor: "#222",
@@ -13,13 +14,11 @@ const styles = { // 🎨
     position: "fixed",
     zIndex: 1,
     // border: '1px solid red',
-    // paddingRight: '200px',
     boxShadow: "0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)",
     backgroundImage: "linear-gradient(to right, #34CDFA, #E8D9F1)"
   },
   logo: {
     width: 40,
-    // paddingRight: 10,
     paddingLeft: 10,
     paddingRight: 20
   },
@@ -31,10 +30,9 @@ const styles = { // 🎨
     textTransform: "uppercase",
     letterSpacing: "1px",
     textDecoration: "none",
-    // width: "100%",
     paddingLeft: "10px",
-    // border: '1px solid green',
     minHeight: 10
+    // border: '1px solid green',
   },
   links: {
     color: "#222",
@@ -46,14 +44,14 @@ const styles = { // 🎨
     borderRadius: 3
   },
   linksContainer: {
-    // border: "1px solid blue",
     display: "flex"
+    // border: "1px solid blue",
   }
 };
 
 const initialState = { products: false, bars: false, company: false };
 const Navbar = props => {
-  const { logo, pad, brand, location } = props;
+  const { logo, pad, location } = props;
 
   function reducer(state, action) {
     switch (action) {
@@ -70,6 +68,7 @@ const Navbar = props => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const links = [
+    // Nav Links
     // {
     //   id: 2,
     //   path: "/products",
@@ -96,69 +95,75 @@ const Navbar = props => {
   // console.log(width);
   return (
     <>
-    <Helmet>
-      <meta name="icon" content="🏈"/>
-      <meta name="description" content="locals happy hour st augustine florida, all best bars in town, food, beer, wine"/>
-      <link href="https://fonts.googleapis.com/css?family=Roboto:100|ZCOOL+KuaiLe" rel="stylesheet"/>
-    </Helmet>
-    <div // 🌌
-      style={Object.assign({}, styles.container, {
-        paddingLeft: pad,
-        paddingRight: pad
-      })}
-    >
-      {/* <div>
+      <Helmet>
+        <meta name="icon" content="🍻" />
+        <meta
+          name="description"
+          content="locals happy hour st augustine florida, all best bars in town, food, beer, wine"
+        />
+        <link
+          href="https://fonts.googleapis.com/css?family=Roboto:100|ZCOOL+KuaiLe"
+          rel="stylesheet"
+        />
+      </Helmet>
+      <div // 🌌
+        style={Object.assign({}, styles.container, {
+          paddingLeft: pad,
+          paddingRight: pad
+        })}
+      >
+        {/* <div>
         <Link to="/" style={styles.brand}>
           {brand === "" ? "" : `Locals`}
         </Link>
       </div> */}
 
-      <div>
-        <Link to="/">
-          <img src={logo} style={styles.logo} alt="" />
-        </Link>
-      </div>
+        <div>
+          <Link to="/">
+            <img src={logo} style={styles.logo} alt="" />
+          </Link>
+        </div>
 
-      {/* <div style={{ width: "inherit", minWidth: brand === "" ? 0 : 200 }}>
+        {/* <div style={{ width: "inherit", minWidth: brand === "" ? 0 : 200 }}>
         <Link to="/" style={styles.brand}>
           {brand}
         </Link>
       </div> */}
 
-      <div
-        style={{
-          // border: "1px solid red",
-          width: "1200%",
-          textAlign: "center",
-          paddingRight: 20
-        }}
-      >
-        <Locale location={location}/>
-      </div>
+        <div
+          style={{
+            // border: "1px solid red",
+            width: "1200%",
+            textAlign: "center",
+            paddingRight: 20
+          }}
+        >
+          <Locale location={location} />
+        </div>
 
-      <div
-        style={Object.assign({}, styles.linksContainer, {
-          paddingRight: pad + pad + 10
-        })}
-      >
-        {links.map(link => (
-          <Link
-            to={link.path}
-            key={link.id}
-            style={Object.assign({}, styles.links, {
-              color: link.active === true ? "#fff" : "#222"
-            })}
-            onMouseEnter={e => {
-              e.target.style.color = "#fff";
-            }}
-            onMouseLeave={e => (e.target.style.color = "#222")}
-            onClick={link.onClick}
-          >
-            {link.title}
-          </Link>
-        ))}
+        <div
+          style={Object.assign({}, styles.linksContainer, {
+            paddingRight: pad + pad + 10
+          })}
+        >
+          {links.map(link => (
+            <Link
+              to={link.path}
+              key={link.id}
+              style={Object.assign({}, styles.links, {
+                color: link.active === true ? "#fff" : "#222"
+              })}
+              onMouseEnter={e => {
+                e.target.style.color = "#fff";
+              }}
+              onMouseLeave={e => (e.target.style.color = "#222")}
+              onClick={link.onClick}
+            >
+              {link.title}
+            </Link>
+          ))}
+        </div>
       </div>
-    </div>
     </>
   );
 };

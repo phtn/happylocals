@@ -1,6 +1,6 @@
 import React from "react";
 import { Map, Marker, InfoWindow, GoogleApiWrapper } from "google-maps-react";
-import Blue from '../assets/marker.svg'
+// import Blue from '../assets/marker.svg'
 const styles = {
   container: {
     height: 400

@@ -21,17 +21,16 @@ const styles = {
   },
   brand: {
     color: "#444",
-    // textShadow: " 1px 1px #ccc",
     letterSpacing: 1,
     fontFamily: "Open Sans, sans-serif",
     fontSize: "12px",
     fontWeight: "bolder",
-    // fontFamily: "ZCOOL KuaiLe, cursive",
-    fontWeight: 'bolder',
     textTransform: 'uppercase',
-    // backgroundColor: "rgba(255,255,255, 0.2)",
     padding: "6px",
     borderRadius: "5px"
+    // fontFamily: "ZCOOL KuaiLe, cursive",
+    // textShadow: " 1px 1px #ccc",
+    // backgroundColor: "rgba(255,255,255, 0.2)",
   },
   icon: {
     height: "14px",
