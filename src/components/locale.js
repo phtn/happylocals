@@ -24,7 +24,7 @@ const styles = {
     // textShadow: " 1px 1px #ccc",
     letterSpacing: 1,
     fontFamily: "Open Sans, sans-serif",
-    fontSize: "20px",
+    fontSize: "12px",
     fontWeight: "bolder",
     // fontFamily: "ZCOOL KuaiLe, cursive",
     fontWeight: 'bolder',

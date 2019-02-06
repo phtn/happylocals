@@ -13,8 +13,8 @@ function MapContainer(props) {
       {/*  29.839496642 -81.26999892 */}
       <Map
         google={google}
-        zoom={13}
-        initialCenter={{ lat: 29.839496642, lng: "-81.26999892" }}
+        zoom={12}
+        initialCenter={{ lat: 29.8196766, lng: "-81.2861916" }}
       >
 
         <Marker 
