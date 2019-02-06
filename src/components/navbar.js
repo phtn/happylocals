@@ -20,7 +20,8 @@ const styles = { // 🎨
   logo: {
     width: 40,
     // paddingRight: 10,
-    paddingLeft: 10
+    paddingLeft: 10,
+    paddingRight: 20
   },
   brand: {
     color: "#eee",
@@ -106,11 +107,11 @@ const Navbar = props => {
         paddingRight: pad
       })}
     >
-      <div>
+      {/* <div>
         <Link to="/" style={styles.brand}>
           {brand === "" ? "" : `Locals`}
         </Link>
-      </div>
+      </div> */}
 
       <div>
         <Link to="/">
@@ -118,11 +119,11 @@ const Navbar = props => {
         </Link>
       </div>
 
-      <div style={{ width: "inherit", minWidth: brand === "" ? 0 : 200 }}>
+      {/* <div style={{ width: "inherit", minWidth: brand === "" ? 0 : 200 }}>
         <Link to="/" style={styles.brand}>
           {brand}
         </Link>
-      </div>
+      </div> */}
 
       <div
         style={{
