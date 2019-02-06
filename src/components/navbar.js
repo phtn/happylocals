@@ -1,8 +1,9 @@
 import React, { useReducer } from "react";
 import { Link } from "gatsby";
 import Locale from "../components/locale";
+import Helmet from 'react-helmet'
 
-const styles = {
+const styles = { // 🎨
   container: {
     height: 50,
     backgroundColor: "#222",
@@ -17,7 +18,7 @@ const styles = {
     backgroundImage: "linear-gradient(to right, #34CDFA, #E8D9F1)"
   },
   logo: {
-    width: 45,
+    width: 40,
     // paddingRight: 10,
     paddingLeft: 10
   },
@@ -93,7 +94,13 @@ const Navbar = props => {
 
   // console.log(width);
   return (
-    <div
+    <>
+    <Helmet>
+      <meta name="icon" content="🏈"/>
+      <meta name="description" content="locals happy hour st augustine florida, all best bars in town, food, beer, wine"/>
+      <link href="https://fonts.googleapis.com/css?family=Roboto:100|ZCOOL+KuaiLe" rel="stylesheet"/>
+    </Helmet>
+    <div // 🌌
       style={Object.assign({}, styles.container, {
         paddingLeft: pad,
         paddingRight: pad
@@ -151,6 +158,7 @@ const Navbar = props => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 export default Navbar;

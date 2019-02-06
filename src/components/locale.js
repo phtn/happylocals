@@ -1,5 +1,6 @@
 import React from 'react'
 import Slide from 'react-reveal/Slide'
+import Fade from 'react-reveal/Fade' 
 import Marker from '../assets/marker.svg'
 import { globalHistory } from '@reach/router'
 
@@ -9,12 +10,25 @@ const styles = {
     // paddingTop: "55px",
     maxWidth: 200
   },
-  headerTitle: {
+  locale: {
     color: "#0076ff",
     fontSize: ".9em",
     fontFamily: "Roboto, sans-serif",
     fontWeight: 100,
     backgroundColor: "rgba(255,255,255, 0.2)",
+    padding: "6px",
+    borderRadius: "5px"
+  },
+  brand: {
+    color: "#444",
+    fontSize: "1em",
+    textShadow: " 1px 1px #ccc",
+    // letterSpacing: 1,
+    fontFamily: "Roboto, sans-serif",
+    // fontFamily: "ZCOOL KuaiLe, cursive",
+    fontWeight: 'bolder',
+    textTransform: 'uppercase',
+    // backgroundColor: "rgba(255,255,255, 0.2)",
     padding: "6px",
     borderRadius: "5px"
   },
@@ -29,20 +43,28 @@ const styles = {
 function isBarlist(path){
   if (path === "/bars"){
     return (
-      <h1 style={styles.headerTitle}>
-        <img src={Marker} style={styles.icon} alt="" />
-        St Augustine
-      </h1>
+      <Slide>
+        <h1 style={styles.locale}>
+          <img src={Marker} style={styles.icon} alt="" />
+          St Augustine, FL
+        </h1>
+      </Slide>
     )
   } 
-  return
+  return (
+    <Fade>
+      <h1 style={styles.brand}>
+        Locals Happy Hour
+      </h1>
+    </Fade>
+  )
 }
 
 function TopLabel({ location }) {
   return (
-    <Slide top>
-      {isBarlist(globalHistory.location.pathname)}      
-    </Slide>
+    <>
+      {isBarlist(globalHistory.location.pathname)}  
+    </>
   )
 }
 export default TopLabel
