@@ -18,7 +18,8 @@ const styles = {
     textAlign: "center"
   },
   header: {
-    color: "#003366"
+    // color: "#003366"
+    color: '#222'
   },
   author: {
     textTransform: "uppercase",
@@ -43,7 +44,7 @@ const Header = () => {
   // console.log(doc)
   return (
     <div style={styles.headerContainer}>
-      <h1 style={styles.header}>Keystone Media</h1>
+      <h1 style={styles.header}>Locals</h1>
       <hr />
     </div>
   );
@@ -51,7 +52,7 @@ const Header = () => {
 
 export default function Template({ data }) {
   const { markdownRemark: post } = data;
-  const { title, author } = post.frontmatter;
+  const { title } = post.frontmatter;
   // console.log(typeof post)
   const handleMouseDown = () => console.log('test')
   return (
@@ -64,10 +65,10 @@ export default function Template({ data }) {
       </Helmet>
       <Header />
       <h1 style={styles.blogTitle}>{title}</h1>
-      <p style={styles.author}>
+      {/* <p style={styles.author}>
         <span style={styles.by}>by</span>
         {author}
-      </p>
+      </p> */}
       <div
         onMouseDown={handleMouseDown}
         onDragCapture={handleMouseDown}

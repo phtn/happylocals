@@ -34,7 +34,7 @@ function MapContainer(props) {
           <InfoWindow
             visible={true}
             name={'Center'}
-            draggable={true}
+            // draggable={true}
           >
             <p>Center</p>
           </InfoWindow>

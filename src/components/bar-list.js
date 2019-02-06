@@ -121,14 +121,14 @@ const Card = props => {
           martini: file(relativePath: { eq: "tini-martini.jpg" }) {
             childImageSharp {
               fluid(maxWidth: 1600) {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_tracedSVG
               }
             }
           }
           staugdist: file(relativePath: { eq: "staug-dist.jpg" }) {
             childImageSharp {
               fluid(maxWidth: 1600) {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_tracedSVG
               }
             }
           }
