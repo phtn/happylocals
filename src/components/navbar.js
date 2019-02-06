@@ -1,5 +1,6 @@
 import React, { useReducer } from "react";
 import { Link } from "gatsby";
+import Locale from "../components/locale";
 
 const styles = {
   container: {
@@ -13,7 +14,7 @@ const styles = {
     // border: '1px solid red',
     // paddingRight: '200px',
     boxShadow: "0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)",
-    backgroundImage: 'linear-gradient(to right, #34CDFA, #E8D9F1)',
+    backgroundImage: "linear-gradient(to right, #34CDFA, #E8D9F1)"
   },
   logo: {
     width: 45,
@@ -29,21 +30,22 @@ const styles = {
     letterSpacing: "1px",
     textDecoration: "none",
     // width: "100%",
-    paddingLeft: '10px'
-    // border: '1px solid red'
+    paddingLeft: "10px",
+    // border: '1px solid green',
+    minHeight: 10
   },
   links: {
     color: "#222",
     textDecoration: "none",
     fontFamily: "Open Sans, sans-serif",
-    padding: '5px',
-    fontSize: '16px',
-    border: '1px solid #555',
+    padding: "5px",
+    fontSize: "16px",
+    border: "1px solid #555",
     borderRadius: 3
   },
   linksContainer: {
     // border: "1px solid blue",
-    display: 'flex',
+    display: "flex"
   }
 };
 
@@ -79,7 +81,7 @@ const Navbar = props => {
       title: "Bars",
       active: state.bars,
       onClick: () => dispatch("bars")
-    },
+    }
     // {
     //   id: 0,
     //   path: "/company",
@@ -87,8 +89,6 @@ const Navbar = props => {
     //   active: state.company,
     //   onClick: () => dispatch("company")
     // },
-    
-    
   ];
 
   // console.log(width);
@@ -98,31 +98,47 @@ const Navbar = props => {
         paddingLeft: pad,
         paddingRight: pad
       })}
-    > 
-      <div >
+    >
+      <div>
         <Link to="/" style={styles.brand}>
-          {brand === '' ? '' : `Locals`}
+          {brand === "" ? "" : `Locals`}
         </Link>
       </div>
+
       <div>
         <Link to="/">
           <img src={logo} style={styles.logo} alt="" />
         </Link>
       </div>
-      <div style={{ width: 'inherit', display: 'flex' }}>
+
+      <div style={{ width: "inherit", minWidth: brand === "" ? 0 : 200 }}>
         <Link to="/" style={styles.brand}>
           {brand}
         </Link>
       </div>
+
       <div
-        style={Object.assign({}, styles.linksContainer, { paddingRight: pad + pad + 10})}
+        style={{
+          // border: "1px solid red",
+          width: "1200%",
+          textAlign: "center",
+          paddingRight: 20
+        }}
+      >
+        <Locale />
+      </div>
+
+      <div
+        style={Object.assign({}, styles.linksContainer, {
+          paddingRight: pad + pad + 10
+        })}
       >
         {links.map(link => (
           <Link
             to={link.path}
             key={link.id}
             style={Object.assign({}, styles.links, {
-              color: link.active === true ? "#fff" : "#222",
+              color: link.active === true ? "#fff" : "#222"
             })}
             onMouseEnter={e => {
               e.target.style.color = "#fff";

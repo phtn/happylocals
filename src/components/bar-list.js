@@ -5,7 +5,6 @@ import { Link } from "gatsby";
 import Img from "gatsby-image";
 import Fade from "react-reveal/Fade";
 import Bounce from "react-reveal/Bounce";
-import Slide from "react-reveal/Slide";
 import LightSpeed from "react-reveal/LightSpeed";
 import Wing from "../assets/black-gallon.svg";
 import Spear from "../assets/spear.svg";
@@ -24,20 +23,7 @@ const styles = {
     backgroundSize: "100%",
     backgroundRepeat: "no-repeat"
   },
-  header: {
-    textAlign: "center",
-    paddingTop: "55px",
-    maxWidth: 200
-  },
-  headerTitle: {
-    color: "#0076ff",
-    fontSize: "1em",
-    fontFamily: "Roboto, sans-serif",
-    fontWeight: 100,
-    backgroundColor: "#fff",
-    padding: "5px",
-    borderRadius: "5px"
-  },
+ 
   cardTitle: {
     fontFamily: "ZCOOL KuaiLe, cursive",
     fontSize: "24px",
@@ -62,10 +48,7 @@ const styles = {
     opacity: 1,
     maxWidth: 200
   },
-  icon: {
-    height: "14px",
-    marginRight: "10px"
-  },
+  
   author: {
     marginTop: "0px",
     fontSize: 12,
@@ -211,15 +194,14 @@ const Card = props => {
             >
               <p>{description}</p>
             </div>
-            
-            
+
             <Img // Main Image
-              fluid={imgs[id]} />
-            
+              fluid={imgs[id]}
+            />
+
             <div style={Object.assign({}, styles.container, {})}>
               <div
                 style={{
-                  // backgroundColor: "rgba(0,0,0,0.5)",
                   maxWidth: "300px",
                   textAlign: "center",
                   height: "100%"
@@ -227,13 +209,9 @@ const Card = props => {
               >
                 <div
                   style={{
-                    // display: "flex",
                     textAlign: "center"
-                    // justifyContent: 'center',
                   }}
                 >
-                  
-
                   <img src={logo} alt="" width={"275"} />
                   <Link
                     style={styles.btn}
@@ -258,7 +236,7 @@ const Card = props => {
 };
 
 const BlogList = props => {
-  const { items, pad, headerTitle, buttonTitle, icon } = props;
+  const { items, pad, buttonTitle } = props;
   return (
     <>
       <div
@@ -267,11 +245,7 @@ const BlogList = props => {
           paddingRight: `${pad + 10}px`
         })}
       >
-        <Slide top>
-          <h1 style={styles.headerTitle}>
-            <img src={icon} style={styles.icon} alt="" /> {headerTitle}
-          </h1>
-        </Slide>
+      <div style={{paddingTop: '55px'}}></div>
       </div>
 
       {items.map(item => (
