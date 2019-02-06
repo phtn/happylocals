@@ -51,7 +51,7 @@ const styles = {
 
 const initialState = { products: false, bars: false, company: false };
 const Navbar = props => {
-  const { logo, pad, brand } = props;
+  const { logo, pad, brand, location } = props;
 
   function reducer(state, action) {
     switch (action) {
@@ -125,7 +125,7 @@ const Navbar = props => {
           paddingRight: 20
         }}
       >
-        <Locale />
+        <Locale location={location}/>
       </div>
 
       <div

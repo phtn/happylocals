@@ -1,6 +1,7 @@
 import React from 'react'
 import Slide from 'react-reveal/Slide'
 import Marker from '../assets/marker.svg'
+import { globalHistory } from '@reach/router'
 
 const styles = {
   header: {
@@ -34,16 +35,13 @@ function isBarlist(path){
       </h1>
     )
   } 
-
   return
-  
 }
 
-function TopLabel() {
-  // getPath()
+function TopLabel({ location }) {
   return (
     <Slide top>
-      {isBarlist(document.location.pathname)}      
+      {isBarlist(globalHistory.location.pathname)}      
     </Slide>
   )
 }

@@ -15,7 +15,9 @@ const styles = {
   }
 }
 
-const Layout = ({children, title}) => {
+
+
+const Layout = ({children, title, location}) => {
 
   const getInitialPad = () => {
     if (typeof global !== 'undefined' && global.innerWidth > 750){
@@ -62,7 +64,7 @@ const Layout = ({children, title}) => {
     <div style={styles.container}>
       
       <Metatags title={brand}/>
-      <Navbar pad={navPad} width={width} brand={brand} logo={Logo}/>
+      <Navbar pad={navPad} width={width} brand={brand} logo={Logo} location={location}/>
       
       {childrenWithProps}
 
