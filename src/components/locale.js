@@ -2,7 +2,7 @@ import React from 'react'
 import Slide from 'react-reveal/Slide'
 import Fade from 'react-reveal/Fade' 
 import Marker from '../assets/marker.svg'
-import { globalHistory } from '@reach/router'
+
 
 const styles = {
   header: {
@@ -63,7 +63,7 @@ function isBarlist(path){
 function TopLabel({ location }) {
   return (
     <>
-      {isBarlist(globalHistory.location.pathname)}  
+      {isBarlist(location)}  
     </>
   )
 }

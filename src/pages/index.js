@@ -1,12 +1,13 @@
 import React from "react";
 import Layout from "../components/layout";
-// import ClearWater from '../assets/clear-water.mp4';
 import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import Map from "../components/map";
 import Bounce from "react-reveal/Bounce";
 import Slide from 'react-reveal/Slide'
+
+// 🔔 LANDING PAGE 🔔
 
 const styles = {
   container: {
@@ -35,7 +36,7 @@ const Landing = props => {
           highlight: file(relativePath: { eq: "staug1.jpg" }) {
             childImageSharp {
               fluid(maxWidth: 1600) {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_tracedSVG
               }
             }
           }

@@ -3,6 +3,8 @@ import { Link } from "gatsby";
 import Locale from "../components/locale";
 import Helmet from "react-helmet";
 
+// 🔶 NAVBAR 🔶
+
 // 🎨
 const styles = {
   container: {
@@ -40,8 +42,9 @@ const styles = {
     fontFamily: "Open Sans, sans-serif",
     padding: "5px",
     fontSize: "16px",
-    border: "1px solid #555",
-    borderRadius: 3
+    // border: "1px solid #555",
+    borderRadius: 3,
+    // lineHeight: 24
   },
   linksContainer: {
     display: "flex"
@@ -92,7 +95,7 @@ const Navbar = props => {
     // },
   ];
 
-  // console.log(width);
+  console.log(path);
   return (
     <>
       <Helmet>
@@ -144,24 +147,27 @@ const Navbar = props => {
         <div
           style={Object.assign({}, styles.linksContainer, {
             paddingRight: pad + pad + 10
-          })}
+
+          })}  
         >
-          {links.map(link => (
+
+          {links.map(link => ( // 🐙 LINKS
             <Link
               to={link.path}
               key={link.id}
               style={Object.assign({}, styles.links, {
-                color: link.active === true ? "#fff" : "#222"
+                color: link.active === true ? "#222" : "#444"
               })}
               onMouseEnter={e => {
-                e.target.style.color = "#fff";
+                e.target.style.borderBottom = "2px solid #444";
               }}
-              onMouseLeave={e => (e.target.style.color = "#222")}
+              onMouseLeave={e => (e.target.style.borderBottom = "0px solid #444")}
               onClick={link.onClick}
             >
               {link.title}
             </Link>
           ))}
+
         </div>
       </div>
     </>

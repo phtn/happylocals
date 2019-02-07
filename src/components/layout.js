@@ -1,23 +1,16 @@
-import React, { useState, useEffect, Children, cloneElement } from 'react'
+import React, { useState, useEffect, Children, cloneElement, Fragment } from 'react'
 import Logo from "../assets/chronometer.svg";
 import Navbar from './navbar';
 import Footer from './footer'
 import '../index.css'
 import Metatags from './metatags';
+import { globalHistory } from '@reach/router'
 
-// const WINDOW_HEIGHT = window.innerHeight
-// const WINDOW_WIDTH = window.innerWidth
-// console.log(WINDOW_HEIGHT)
-
-const styles = {
-  container: {
-    // margin: 0
-  }
-}
+// 🐲 MASTER LAYOUT 🐲
 
 
 
-const Layout = ({children, title, location}) => {
+const Layout = ({children, title }) => {
 
   const getInitialPad = () => {
     if (typeof global !== 'undefined' && global.innerWidth > 750){
@@ -58,13 +51,13 @@ const Layout = ({children, title, location}) => {
     return () => (typeof global !== 'undefined' && global.removeEventListener('resize', handleWidthResize))
   }, [width, navPad, brand])
 
-  const childrenWithProps = Children.map(children, child => cloneElement(child, {pad: navPad}))
+  const childrenWithProps = Children.map(children, child => cloneElement(child, {pad: navPad, location: globalHistory.location.pathname}))
 
   return (
-    <div style={styles.container}>
+    <Fragment>
       
       <Metatags title={brand}/>
-      <Navbar pad={navPad} width={width} brand={brand} logo={Logo} location={location}/>
+      <Navbar pad={navPad} width={width} brand={brand} logo={Logo} location={globalHistory.location.pathname}/>
       
       {childrenWithProps}
 
@@ -72,7 +65,7 @@ const Layout = ({children, title, location}) => {
         <Footer pad={navPad} brand={brand} logo={Logo}/>
       </footer>
 
-    </div>
+    </Fragment>
     
   )
 }

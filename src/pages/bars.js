@@ -22,6 +22,7 @@ const Blog = ({ data, pad }) => {
           buttonTitle={`Read More`}
           pad={pad}
           icon={MapIcon}
+          
         />
       </Layout>
     </>
