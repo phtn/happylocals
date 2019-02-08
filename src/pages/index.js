@@ -7,7 +7,7 @@ import Map from "../components/map";
 import Bounce from "react-reveal/Bounce";
 import Slide from 'react-reveal/Slide'
 
-// 🔔 LANDING PAGE 🔔
+// ⚜️ LANDING PAGE ⚜️
 
 const styles = {
   container: {

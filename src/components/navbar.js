@@ -95,7 +95,7 @@ const Navbar = props => {
     // },
   ];
 
-  console.log(path);
+  
   return (
     <>
       <Helmet>
