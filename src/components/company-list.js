@@ -1,5 +1,5 @@
 import React from "react";
-import { Trail, Spring } from "react-spring";
+import { useTrail, animated, Spring } from "react-spring";
 // import { Link } from "gatsby";
 const styles = {
   container: {
@@ -11,6 +11,7 @@ const styles = {
     // alignItems: "center",
     flexDirection: "column",
     marginTop: "24px",
+    marginBottom: "24px",
     minWidth: "264px",
     padding: "10px 24px"
   },
@@ -95,33 +96,27 @@ const Extra = props => {
 };
 
 const Card = props => {
-  const { title, author, jobTitle, avatar, intro, logo, image, animate, pad } = props;
+  const { title, author, jobTitle, avatar, intro, logo, image, pad } = props;
   return (
     <div
-      style={Object.assign({}, styles.container, animate, {
+      style={Object.assign({}, styles.container, {
         margin: `20px ${pad + 10}px`
       })}
     >
-      <Spring
-        from={{ transform: "translate3d(5px, 0px, 0px)" }}
-        to={{ transform: "translate3d(0px, 0px, 0px)" }}
-      >
-        {animate => (
-          <>
-            <h3 style={Object.assign({}, styles.cardTitle, animate)}>
-              {title}
-            </h3>
-            <Extra
-              author={author}
-              avatar={avatar}
-              date={`Dec 25 2018`}
-              jobTitle={jobTitle}
-              intro={intro}
-              
-            />
-          </>
-        )}
-      </Spring>
+      
+
+      <h3 style={Object.assign({}, styles.cardTitle)}>
+        {title}
+      </h3>
+      <Extra
+        author={author}
+        avatar={avatar}
+        date={`Dec 25 2018`}
+        jobTitle={jobTitle}
+        intro={intro}
+        
+      />
+        
 
       {/* <hr style={styles.hr} /> */}
       <img src={logo} alt="" width={"275"} />
@@ -133,8 +128,20 @@ const Card = props => {
   );
 };
 
-const AboutList = props => {
+const config = { mass: 5, tension: 2000, friction: 200 }
+
+
+const CompanyList = props => {
   const { items, pad, headerTitle, icon } = props;
+
+  // ⚠️ TRAIL
+  const trail = useTrail(items.length, {
+    config,
+    opacity: 1,
+    x: 0,
+    from: { opacity: 0, x: 20 }
+  })
+
   return (
     <>
       <div
@@ -144,27 +151,31 @@ const AboutList = props => {
           <img src={icon} style={styles.icon} alt="" /> {headerTitle}
         </h1>
       </div>
-      <Trail
-        items={items}
-        keys={item => item.id}
-        from={{ opacity: 0, transform: "translate3d(0,5px,0)" }}
-        to={{ opacity: 1, transform: "translate3d(0,0px,0)" }}
-      >
-        {item => animate => (
+
+
+      {/*  ⚠️  */}
+      {trail.map( ({opacity, x , ...rest}, index) => (
+        <animated.div
+          key={items[index]}
+          style={{opacity, transform: x.interpolate(x => `translate3d(0,${x}px,0)`)}}
+        >
+          {/* {items[index].title} */}
           <Card
-            title={item.title}
-            author={item.author}
-            jobTitle={item.jobTitle}
-            animate={animate}
+            title={items[index].title}
+            author={items[index].author}
+            jobTitle={items[index].jobTitle}
             pad={pad}
-            logo={item.logo}
-            avatar={item.avatar}
-            intro={item.intro}
+            logo={items[index].logo}
+            avatar={items[index].avatar}
+            intro={items[index].intro}
             // image={image}
           />
-        )}
-      </Trail>
+        </animated.div>
+      ) )}
+
+
+      
     </>
   );
 };
-export default AboutList;
+export default CompanyList;
