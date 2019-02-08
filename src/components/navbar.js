@@ -2,6 +2,7 @@ import React, { useReducer } from "react";
 import { Link } from "gatsby";
 import Locale from "../components/locale";
 import Helmet from "react-helmet";
+import { useSpring, animated } from 'react-spring'
 
 // 🔶 NAVBAR 🔶
 
@@ -95,6 +96,9 @@ const Navbar = props => {
     // },
   ];
 
+  // REACT - SPRING
+  const [styl, set] = useSpring(()=> ({opacity: 1}))
+  //  set({opacity: 0})
   
   return (
     <>
@@ -157,14 +161,16 @@ const Navbar = props => {
               key={link.id}
               style={Object.assign({}, styles.links, {
                 color: link.active === true ? "#222" : "#444"
-              })}
+              },
+                
+              )}
               onMouseEnter={e => {
-                e.target.style.borderBottom = "2px solid #444";
+                e.target.style.backgroundColor = "#eee";
               }}
-              onMouseLeave={e => (e.target.style.borderBottom = "0px solid #444")}
-              onClick={link.onClick}
+              onMouseLeave={e => (e.target.style.backgroundColor = "transparent")}
+              // onClick={set({borderBottom: '2px solid gray'})}
             >
-              {link.title}
+              <animated.div style={styl}>{link.title}</animated.div>
             </Link>
           ))}
 

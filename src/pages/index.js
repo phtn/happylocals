@@ -5,7 +5,7 @@ import { StaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import Map from "../components/map";
 import Bounce from "react-reveal/Bounce";
-import Slide from 'react-reveal/Slide'
+import Slide from "react-reveal/Slide";
 
 // ⚜️ LANDING PAGE ⚜️
 
@@ -54,11 +54,21 @@ const Landing = props => {
                 // border: "1px solid red",
                 display: "flex",
                 width: "100%",
-                justifyContent: 'center'
+                justifyContent: "center"
               }}
             >
               <Slide left>
-                <h1 style={{ color: "#34CDFA", fontFamily: 'Roboto, sams-serif', fontWeight: 100, backgroundColor: 'rgba(0,0,0,0.5)', padding: '5px 10px'}}>Highlight of the day!</h1>
+                <h1
+                  style={{
+                    color: "#34CDFA",
+                    fontFamily: "Roboto, sams-serif",
+                    fontWeight: 100,
+                    backgroundColor: "rgba(0,0,0,0.5)",
+                    padding: "5px 10px"
+                  }}
+                >
+                  {/* Highlight of the day! */}
+                </h1>
               </Slide>
             </div>
             <Img
