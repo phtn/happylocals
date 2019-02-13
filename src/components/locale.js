@@ -4,6 +4,7 @@ import Fade from 'react-reveal/Fade'
 import Marker from '../assets/marker.svg'
 
 
+
 const styles = {
   header: {
     textAlign: "center",
@@ -11,7 +12,7 @@ const styles = {
     maxWidth: 200
   },
   locale: {
-    color: "#0076ff",
+    color: "#444",
     fontSize: ".9em",
     fontFamily: "Open Sans, sans-serif",
     fontWeight: 100,
@@ -61,6 +62,13 @@ function isBarlist(path){
 }
 
 function TopLabel({ location }) {
+  // GEOLOCATION using NAVIGATOR
+  // if ("geolocation" in navigator) {
+  //   const geo = navigator.geolocation
+  //   geo.getCurrentPosition(pos=> console.log(pos.coords.latitude + ',' + pos.coords.longitude))
+  // } 
+  
+
   return (
     <>
       {isBarlist(location)}  

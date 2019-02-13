@@ -6,6 +6,7 @@ import Img from "gatsby-image";
 import Map from "../components/map";
 import Bounce from "react-reveal/Bounce";
 import Slide from "react-reveal/Slide";
+import Hightlight from "../components/hightlight";
 
 // ⚜️ LANDING PAGE ⚜️
 
@@ -71,6 +72,7 @@ const Landing = props => {
                 </h1>
               </Slide>
             </div>
+            <Hightlight/>
             <Img
               fluid={data.highlight.childImageSharp.fluid}
               alt={"highlight"}

@@ -21,7 +21,7 @@ const Layout = ({children, title }) => {
   }
   const getInitialBrand = () => {
     if (typeof global !== 'undefined' && global.innerWidth > 750){
-      return 'Happy Hour'
+      return 'Locals Happy Hour'
     } else {
       return ''
     }
@@ -32,7 +32,7 @@ const Layout = ({children, title }) => {
   
 
   useEffect(()=> {
-    const handleWidthResize = () => setWidth(global.innerWidth)
+    const handleWidthResize = () => setWidth(typeof global !== 'undefined' && global.innerWidth)
     global.addEventListener('resize', handleWidthResize)
 
     const handleNavPad = (pad) => setNavPad(pad)
@@ -42,17 +42,17 @@ const Layout = ({children, title }) => {
 
     if (width > 750){
       handleNavPad(200)
-      handleShowBrand('Happy Hour')
+      handleShowBrand('Locals Happy Hour')
     } else {
       handleNavPad(0)
       handleShowBrand('')
     }
 
-    return () => (typeof global !== 'undefined' && global.removeEventListener('resize', handleWidthResize))
+    return () => global.removeEventListener('resize', handleWidthResize)
   }, [width, navPad, brand])
 
   const childrenWithProps = Children.map(children, child => cloneElement(child, {pad: navPad, location: globalHistory.location.pathname}))
-
+  // console.log(global.innerWidth)
   return (
     <Fragment>
       
