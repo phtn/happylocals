@@ -97,7 +97,7 @@ const Navbar = props => {
   ];
 
   // REACT - SPRING
-  const [styl, set] = useSpring(()=> ({opacity: 1}))
+  const [styl] = useSpring(()=> ({opacity: 1}))
   //  set({opacity: 0})
   
   return (

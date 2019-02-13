@@ -1,5 +1,5 @@
 import React from "react";
-import { useTrail, animated, Spring } from "react-spring";
+import { useTrail, animated } from "react-spring";
 // import { Link } from "gatsby";
 const styles = {
   container: {

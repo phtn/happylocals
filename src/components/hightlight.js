@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { render } from 'react-dom'
 import { useTrail, animated } from 'react-spring'
 // import './styles.css'
 
