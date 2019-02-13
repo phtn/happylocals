@@ -154,24 +154,12 @@ const CompanyList = props => {
 
 
       {/*  ⚠️  */}
-      {trail.map( ({opacity, x , ...rest}, index) => (
-        <animated.div
-          key={items[index]}
-          style={{opacity, transform: x.interpolate(x => `translate3d(0,${x}px,0)`)}}
-        >
-          {/* {items[index].title} */}
-          <Card
-            title={items[index].title}
-            author={items[index].author}
-            jobTitle={items[index].jobTitle}
-            pad={pad}
-            logo={items[index].logo}
-            avatar={items[index].avatar}
-            intro={items[index].intro}
-            // image={image}
-          />
-        </animated.div>
-      ) )}
+      {trail.map( ({opacity, x }, index) => {
+        return (<animated.div key={items[index]} style={{ opacity, transform: x.interpolate(x => `translate3d(0,${x}px,0)`) }}>
+
+          <Card title={items[index].title} author={items[index].author} jobTitle={items[index].jobTitle} pad={pad} logo={items[index].logo} avatar={items[index].avatar} intro={items[index].intro} />
+        </animated.div>);
+      } )}
 
 
       

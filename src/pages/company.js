@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../components/layout";
-import AboutList from "../components/company-list";
+import CompanyList from "../components/company-list";
 import TeamFilter from "../assets/team-filter.svg";
 import Blonde from '../assets/blonde.svg'
 import Hipster from '../assets/hipster.svg'
@@ -53,7 +53,7 @@ const Company = props => {
       <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700i|Quicksand|Roboto:100" rel="stylesheet"/>
     </Helmet>
     <Layout title="Company">
-      <AboutList
+      <CompanyList
         items={people}
         headerTitle={`Meet our Team`}
         pad={pad}
