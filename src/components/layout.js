@@ -51,7 +51,7 @@ const Layout = ({children, title }) => {
     return () => global.removeEventListener('resize', handleWidthResize)
   }, [width, navPad, brand])
 
-  const childrenWithProps = Children.map(children, child => cloneElement(child, {pad: navPad, location: globalHistory.location.pathname}))
+  const childrenWithProps = Children.map(children, child => cloneElement(child, {pad: navPad, location: globalHistory.location.pathname, width: width}))
   // console.log(global.innerWidth)
   return (
     <Fragment>

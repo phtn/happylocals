@@ -30,6 +30,9 @@ const styles = {
   }
 };
 const Landing = props => {
+
+  const { width } = props
+  // console.log(width)
   return (
     <StaticQuery
       query={graphql`
@@ -72,8 +75,9 @@ const Landing = props => {
                 </h1>
               </Slide>
             </div>
-            <Hightlight/>
+            <Hightlight width={width}/>
             <Img
+              id='h-img'
               fluid={data.highlight.childImageSharp.fluid}
               alt={"highlight"}
             />
@@ -115,7 +119,7 @@ const Bridge = props => {
   );
 };
 
-export default () => {
+export default function Index({ width }) {
   return (
     <>
       <Helmet>
@@ -126,8 +130,11 @@ export default () => {
       </Helmet>
 
       <Layout title={`Happy Hour`}>
+        
+        {/* Padding Top */}
         <div style={{ height: 50 }} />
-        <Landing />
+
+        <Landing width={width}/>
         <Bridge />
         <Map />
       </Layout>

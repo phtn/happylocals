@@ -23,7 +23,7 @@ const styles = {
     backgroundSize: "100%",
     backgroundRepeat: "no-repeat"
   },
- 
+  
   cardTitle: {
     fontFamily: "ZCOOL KuaiLe, cursive",
     fontSize: "24px",

@@ -5,7 +5,7 @@ import MapIcon from '../assets/map-icon.svg'
 import { graphql } from "gatsby";
 import Helmet from 'react-helmet'
 
-const Blog = ({ data, pad }) => {
+const Bars = ({ data, pad }) => {
   const { allMarkdownRemark: post } = data;
 
   return (
@@ -28,7 +28,7 @@ const Blog = ({ data, pad }) => {
     </>
   );
 };
-export default Blog;
+export default Bars;
 
 export const getBlogs = graphql`
   query BarsList {
