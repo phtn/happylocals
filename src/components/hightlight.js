@@ -18,7 +18,7 @@ const styles = {
         textTransform: 'uppercase',
         textAlign: 'center',
         
-        // paddingTop: 25
+        // paddingTop: 25 
 
         // border: '1px solid red'
     },
@@ -50,7 +50,7 @@ function Hightlight({ width }) {
           <animated.div
             key={items[index]}
             style={{ ...rest, transform: x.interpolate(x => `translate3d(0,${x}px,0)`) }}>
-            <animated.div style={{ height, width: width, paddingTop: 10, backgroundColor: 'rgba(0,0,0,0.5)', }}>{items[index]}</animated.div>
+            <animated.div style={{ height, width: width, paddingTop: 8, paddingBottom: 8, backgroundColor: 'rgba(0,0,0,0.5)', }}>{items[index]}</animated.div>
           </animated.div>
         ))}
       </div>
