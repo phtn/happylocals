@@ -2,38 +2,52 @@ import React, { } from "react";
 import Layout from "../components/layout";
 import Helmet from "react-helmet";
 import { FixedSizeList as List } from "react-window";
-// import Slide from 'react-reveal'
 
 const styles = {
   container: {
     backgroundColor: "papayawhip"
+  },
+  card: {
+    backgroundColor: "#fff",
+    borderRadius: "5px",
+    boxShadow: "0 2px 4px 0 rgba(14,30,37,.12)",
+    color: "rgba(14,30,37,.54)",
+    margin: 10,
+    height: 133,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: 40
   }
 };
 const Column = ({ index, style }) => (
   <div
     style={Object.assign({}, style, {
-      paddingTop: 100,
       textAlign: 'center',
-      backgroundColor: index % 2 === 0 ? "tomato" : "papayawhip",
+      // backgroundColor: index % 2 === 0 ? "tomato" : "#ccc",
     })}
   >
-    Column {index}
+    <div style={styles.card}>
+      {index + 1}
+    </div>
   </div>
 );
 
 function ListComp({ width }) {
     
   return (
-    <List
-      direction="horizontal"
-      height={155}
-      itemCount={10}
-      itemSize={width * .9}
-      width={width}
-      style={styles.container}
-    >
-      {Column}
-    </List>
+    <div style={{padding: 0}}>
+      <List
+        direction="horizontal"
+        height={155}
+        itemCount={10}
+        itemSize={width * .9}
+        width={width}
+        style={styles.container}
+      >
+        {Column}
+      </List>
+    </div>
   );
 }
 
@@ -51,7 +65,6 @@ export default function Experiment(props) {
           rel="stylesheet"
         />
       </Helmet>
-
       <Layout title="Experimental">
         {/* Padding Top */}
         <div style={{ height: 50 }} />
