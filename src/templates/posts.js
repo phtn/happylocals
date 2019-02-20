@@ -40,11 +40,12 @@ const styles = {
   }
 };
 
-const Header = () => {
+const Header = props => {
   // console.log(doc)
+  const { title } = props
   return (
     <div style={styles.headerContainer}>
-      <h1 style={styles.header}>Locals</h1>
+      <h1 style={styles.header}>{title}</h1>
       <hr />
     </div>
   );
@@ -63,12 +64,9 @@ export default function Template({ data }) {
           rel="stylesheet"
         />
       </Helmet>
-      <Header />
+      <Header title={title}/>
       <h1 style={styles.blogTitle}>{title}</h1>
-      {/* <p style={styles.author}>
-        <span style={styles.by}>by</span>
-        {author}
-      </p> */}
+      
       <div
         onMouseDown={handleMouseDown}
         onDragCapture={handleMouseDown}
