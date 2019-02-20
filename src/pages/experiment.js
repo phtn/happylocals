@@ -17,23 +17,50 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize: 40
+    fontSize: 40,
+    textAlign: 'center',
   },
   cardLabel: {
     padding: '15px 29px',
     border: '1px solid gray',
     borderRadius: 100
+  },
+  cardSubContainer: {
+    paddingLeft: 15,
+    paddingRight: 15,
+    // border: '1px solid red',
+    height: 25,
+
+  },
+  cardSubLabel: {
+    fontSize: '.80em',
+    padding: 0,
+    margin: 0,
+    lineHeight: '25px',
+    // border: '1px solid green',
+    fontFamily: "Open Sans, sans-serif",
+    textTransform: 'uppercase',
+    color: '#333'
+  },
+  cardSubPrice: {
+    fontFamily: "Roboto, sans-serif",
+    fontWeight: 100,
+    float: 'right',
+    color: '#222'
   }
 };
 const Column = ({ index, style }) => (
   <div
-    style={Object.assign({}, style, {
-      textAlign: 'center',
-      // backgroundColor: index % 2 === 0 ? "tomato" : "#ccc",
-    })}
+    style={style}
   >
     <div style={styles.card}>
       <p style={styles.cardLabel}>{index + 1}</p>
+    </div>
+    
+    <div style={styles.cardSubContainer}>
+      <h1 style={styles.cardSubLabel}>
+        Chilean Seabass <span style={styles.cardSubPrice}>$ 24.95</span>
+      </h1>
     </div>
   </div>
 );
@@ -44,7 +71,7 @@ function ListComp({ width }) {
     <div style={{padding: 0}}>
       <List
         direction="horizontal"
-        height={222}
+        height={257}
         itemCount={10}
         itemSize={width * .9}
         width={width}
