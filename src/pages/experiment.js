@@ -5,7 +5,7 @@ import { FixedSizeList as List } from "react-window";
 
 const styles = {
   container: {
-    backgroundColor: "papayawhip"
+    // backgroundColor: "papayawhip"
   },
   card: {
     backgroundColor: "#fff",
@@ -13,11 +13,16 @@ const styles = {
     boxShadow: "0 2px 4px 0 rgba(14,30,37,.12)",
     color: "rgba(14,30,37,.54)",
     margin: 10,
-    height: 133,
+    height: 200,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     fontSize: 40
+  },
+  cardLabel: {
+    padding: '15px 29px',
+    border: '1px solid gray',
+    borderRadius: 100
   }
 };
 const Column = ({ index, style }) => (
@@ -28,7 +33,7 @@ const Column = ({ index, style }) => (
     })}
   >
     <div style={styles.card}>
-      {index + 1}
+      <p style={styles.cardLabel}>{index + 1}</p>
     </div>
   </div>
 );
@@ -39,7 +44,7 @@ function ListComp({ width }) {
     <div style={{padding: 0}}>
       <List
         direction="horizontal"
-        height={155}
+        height={222}
         itemCount={10}
         itemSize={width * .9}
         width={width}
