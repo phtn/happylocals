@@ -1,4 +1,4 @@
-import React, { } from "react";
+import React from "react";
 import Layout from "../components/layout";
 import Helmet from "react-helmet";
 import { FixedSizeList as List } from "react-window";
@@ -14,66 +14,77 @@ const styles = {
     color: "rgba(14,30,37,.54)",
     margin: 10,
     height: 200,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     fontSize: 40,
-    textAlign: 'center',
+    textAlign: "center"
   },
   cardLabel: {
-    padding: '15px 29px',
-    border: '1px solid gray',
+    padding: "15px 29px",
+    border: "1px solid gray",
     borderRadius: 100
   },
   cardSubContainer: {
     paddingLeft: 15,
     paddingRight: 15,
     // border: '1px solid red',
-    height: 25,
-
+    height: 32,
+    display: "flex",
+    alignItems: "center"
+    // justifyContent: 'center'
   },
-  cardSubLabel: {
-    fontSize: '.80em',
+  cardSubLabelContainer: {
+    fontSize: ".80em",
     padding: 0,
     margin: 0,
-    lineHeight: '25px',
+    height: "30px",
     // border: '1px solid green',
-    fontFamily: "Open Sans, sans-serif",
-    textTransform: 'uppercase',
-    color: '#333'
+    fontFamily: "Quicksand, sans-serif",
+    textTransform: "uppercase",
+    color: "#333",
+    display: "flex",
+    alignItems: "center",
+    width: "100%"
+  },
+  cardSubLabel: {
+    display: "flex",
+    width: "100%",
+    // border: "1px solid blue"
   },
   cardSubPrice: {
     fontFamily: "Roboto, sans-serif",
-    fontWeight: 100,
-    float: 'right',
-    color: '#222'
+    textAlign: "center",
+    color: "#222",
+    border: "2px solid #ccc",
+    padding: "6px 15px",
+    borderRadius: "15px",
+    width: "60px"
   }
 };
 const Column = ({ index, style }) => (
-  <div
-    style={style}
-  >
+  <div style={style}>
     <div style={styles.card}>
       <p style={styles.cardLabel}>{index + 1}</p>
     </div>
-    
+
     <div style={styles.cardSubContainer}>
-      <h1 style={styles.cardSubLabel}>
-        Chilean Seabass <span style={styles.cardSubPrice}>$ 24.95</span>
-      </h1>
+      <div style={styles.cardSubLabelContainer}>
+        <div style={styles.cardSubLabel}>Chilean Seabass</div>
+        <div style={styles.cardSubPrice}>$ 4.95</div>
+      </div>
     </div>
   </div>
 );
 
 function ListComp({ width }) {
-    
   return (
-    <div style={{padding: 0}}>
+    <div style={{ padding: 0 }}>
       <List
         direction="horizontal"
         height={257}
         itemCount={10}
-        itemSize={width * .9}
+        itemSize={width * 0.9}
         width={width}
         style={styles.container}
       >
